@@ -1,0 +1,14 @@
+<svg class="animated-bg" width="100vw" height="100vh" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:fixed;top:0;left:0;z-index:0;pointer-events:none;">
+  <circle cx="300" cy="200" r="120" fill="#ffb6b9" opacity="0.18">
+    <animate attributeName="cx" values="300;400;300" dur="8s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="200;300;200" dur="8s" repeatCount="indefinite" />
+  </circle>
+  <ellipse cx="1200" cy="700" rx="160" ry="80" fill="#fae3d9" opacity="0.18">
+    <animate attributeName="cx" values="1200;1100;1200" dur="10s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="700;800;700" dur="10s" repeatCount="indefinite" />
+  </ellipse>
+  <circle cx="900" cy="400" r="90" fill="#bbded6" opacity="0.18">
+    <animate attributeName="cx" values="900;1000;900" dur="7s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="400;500;400" dur="7s" repeatCount="indefinite" />
+  </circle>
+</svg>

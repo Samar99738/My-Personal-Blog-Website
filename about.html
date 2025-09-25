@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Personal Blog</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#" class="active">About</a></li>
+            </ul>
+            <button id="mode-switch" aria-label="Toggle dark mode" class="mode-switch">🌙</button>
+        </nav>
+    </header>
+    <main>
+        <section class="about-section">
+            <h2>About Me</h2>
+            <div class="author-profile">
+                <img src="pic.jpg" alt="Author Avatar" class="author-avatar" />
+                <div class="author-info">
+                    <h3 class="author-name">Samar Shamsh</h3>
+                    <p class="author-bio">Writer, blogger, and coffee enthusiast. Sharing stories, tips, and thoughts from my journey. Connect and enjoy reading!</p>
+                    <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/04samar-shams" target="_blank">https://www.linkedin.com/in/04samar-shams</a></p>
+                    <p><strong>Contact Number:</strong> +91-9973862870</p>
+                    <p><strong>Mail ID:</strong> shamsh121122@gmail.com</p>
+                </div>
+            </div>
+        </section>
+        <section class="recommend-section">
+            <h2>Recommendations & Suggestions</h2>
+            <form id="recommend-form" class="recommend-form">
+                <input type="text" id="rec-name" placeholder="Your Name" required />
+                <input type="email" id="rec-email" placeholder="Your Email" required />
+                <textarea id="rec-message" placeholder="Your recommendation or suggestion..." required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+            <div id="rec-success" class="rec-success" style="display:none;">Thank you for your feedback!</div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 My Personal Blog</p>
+    </footer>
+    <script>
+    function setMode(mode) {
+        document.body.classList.toggle('dark-mode', mode === 'dark');
+        const switchBtn = document.getElementById('mode-switch');
+        if (mode === 'dark') {
+            switchBtn.textContent = '☀️';
+        } else {
+            switchBtn.textContent = '🌙';
+        }
+        localStorage.setItem('blogMode', mode);
+    }
+    function toggleMode() {
+        const isDark = document.body.classList.contains('dark-mode');
+        setMode(isDark ? 'light' : 'dark');
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const savedMode = localStorage.getItem('blogMode') || 'light';
+        setMode(savedMode);
+        document.getElementById('mode-switch').addEventListener('click', toggleMode);
+    });
+
+    document.getElementById('recommend-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('rec-name').value.trim();
+        const email = document.getElementById('rec-email').value.trim();
+        const message = document.getElementById('rec-message').value.trim();
+        if (name && email && message) {
+            let recs = JSON.parse(localStorage.getItem('recommendations') || '[]');
+            recs.push({ name, email, message });
+            localStorage.setItem('recommendations', JSON.stringify(recs));
+            document.getElementById('rec-success').style.display = 'block';
+            e.target.reset();
+            setTimeout(() => {
+                document.getElementById('rec-success').style.display = 'none';
+            }, 3000);
+        }
+    });
+    </script>
+</body>
+</html>

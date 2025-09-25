@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Blog</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <object type="image/svg+xml" data="animated-bg.svg" class="animated-bg"></object>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="about.html" target="_blank">About</a></li>
+            </ul>
+            <button id="mode-switch" aria-label="Toggle dark mode" class="mode-switch">
+                🌙
+            </button>
+        </nav>
+        <div class="hero">
+            <h1>My Personal Blog</h1>
+            <p class="hero-text">Welcome! Discover stories, tips, and thoughts from my writing journey. Enjoy reading and feel free to connect!</p>
+        </div>
+    </header>
+    <main>
+        <div class="blog-controls">
+            <input type="text" id="search-input" placeholder="Search posts..." />
+            <button id="add-post-btn" class="add-post-btn">+ Add Post</button>
+        </div>
+        <section id="posts" class="posts-container">
+            <!-- Blog posts will be rendered here -->
+        </section>
+        <!-- Edit Post Modal -->
+        <div id="edit-post-modal" class="modal" style="display:none;">
+            <div class="modal-content">
+                <span id="close-edit-modal" class="close-btn">&times;</span>
+                <h2>Edit Post</h2>
+                <form id="edit-post-form">
+                    <input type="hidden" id="edit-post-id" />
+                    <input type="text" id="edit-title" placeholder="Title" required />
+                    <textarea id="edit-content" placeholder="Content" required></textarea>
+                    <button type="submit">Save Changes</button>
+                </form>
+            </div>
+        </div>
+        <div id="pagination" class="pagination-controls"></div>
+        <div class="recommend-link-container">
+            <a href="recommendations.html" target="_blank" class="recommend-link-btn">View Recommendations</a>
+        </div>
+        <div id="add-post-modal" class="modal" style="display:none;">
+            <div class="modal-content">
+                <span id="close-add-modal" class="close-btn">&times;</span>
+                <h2>Add New Post</h2>
+                <form id="add-post-form">
+                    <input type="text" id="new-title" placeholder="Title" required />
+                    <textarea id="new-content" placeholder="Content" required></textarea>
+                    <button type="submit">Publish</button>
+                </form>
+            </div>
+        </div>
+        <!-- Comments modal -->
+        <div id="comments-modal" class="modal" style="display:none;">
+            <div class="modal-content">
+                <span id="close-comments-modal" class="close-btn">&times;</span>
+                <h2>Comments</h2>
+                <div id="comments-list"></div>
+                <form id="comment-form">
+                    <input type="text" id="comment-author" placeholder="Your name" required />
+                    <textarea id="comment-text" placeholder="Add a comment..." required></textarea>
+                    <button type="submit">Post Comment</button>
+                </form>
+            </div>
+        </div>
+        <div id="post-modal" class="modal" style="display:none;">
+            <div class="modal-content">
+                <span id="close-modal" class="close-btn">&times;</span>
+                <h2 id="modal-title"></h2>
+                <div id="modal-date" class="post-date"></div>
+                <div id="modal-content" class="post-content"></div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 My Personal Blog</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
