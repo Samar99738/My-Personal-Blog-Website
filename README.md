@@ -1,0 +1,1 @@
+A modern, fully dynamic personal blog built with HTML, CSS, and JavaScript. Features a top-tier UI with glassmorphism, gradients, dark mode, comments, post editing, and responsive design—perfect for showcasing stories and ideas.
